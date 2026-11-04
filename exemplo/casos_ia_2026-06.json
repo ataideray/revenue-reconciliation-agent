@@ -1,0 +1,143 @@
+{
+  "_leia_me": "Respostas da tesouraria escritas para testar a IA sobre o mês de exemplo. confirmar: os números das sugestões que a resposta confirma.",
+  "casos": [
+    {
+      "pessoa": "DANILO JATOBA",
+      "texto": "sim, é o marido da Carla",
+      "confirmar": [
+        1
+      ],
+      "suficiente": true,
+      "explicacao_contem": [
+        "marido"
+      ]
+    },
+    {
+      "pessoa": "DANILO JATOBA",
+      "texto": "isso mesmo",
+      "confirmar": [
+        1
+      ],
+      "suficiente": true,
+      "explicacao_vazia": true
+    },
+    {
+      "pessoa": "DANILO JATOBA",
+      "texto": "não sei quem é",
+      "confirmar": [],
+      "suficiente": false
+    },
+    {
+      "pessoa": "DANILO JATOBA",
+      "texto": "ele sempre paga a anuidade da esposa",
+      "confirmar_aceitos": [
+        [
+          1
+        ],
+        []
+      ],
+      "suficiente": true,
+      "explicacao_contem": [
+        "esposa"
+      ]
+    },
+    {
+      "pessoa": "LUANNA PITTANGA",
+      "texto": "é a Luana, o banco escreveu o nome diferente",
+      "confirmar": [
+        1
+      ],
+      "suficiente": true
+    },
+    {
+      "pessoa": "LUANNA PITTANGA",
+      "texto": "a 1",
+      "confirmar": [
+        1
+      ],
+      "suficiente": true
+    },
+    {
+      "pessoa": "LUANNA PITTANGA",
+      "texto": "não, é outra pessoa, comprou no bazar sem recibo",
+      "confirmar": [],
+      "suficiente": true,
+      "explicacao_contem": [
+        "bazar"
+      ]
+    },
+    {
+      "pessoa": "LUANNA PITTANGA",
+      "texto": "oi",
+      "confirmar": [],
+      "suficiente": false
+    },
+    {
+      "pessoa": "CARLA JATOBA",
+      "texto": "pode confirmar, o Danilo pagou por ela",
+      "confirmar": [
+        1
+      ],
+      "suficiente": true
+    },
+    {
+      "pessoa": "CARLA JATOBA",
+      "texto": "não, ela pagou em espécie na secretaria",
+      "confirmar": [],
+      "suficiente": true,
+      "explicacao_contem": [
+        "espécie"
+      ]
+    },
+    {
+      "pessoa": "CARLA JATOBA",
+      "texto": "o cpf dela é 987.654.321-00, o pix veio do marido",
+      "confirmar_aceitos": [
+        [
+          1
+        ],
+        []
+      ],
+      "suficiente": true,
+      "explicacao_contem": [
+        "marido"
+      ]
+    },
+    {
+      "pessoa": "CARLA JATOBA",
+      "texto": "deixa pra semana que vem",
+      "confirmar": [],
+      "suficiente": null,
+      "adiar": true
+    },
+    {
+      "pessoa": "LUANA PITANGA",
+      "texto": "confirmo",
+      "confirmar": [
+        1
+      ],
+      "suficiente": true,
+      "explicacao_vazia": true
+    },
+    {
+      "pessoa": "LUANA PITANGA",
+      "texto": "o pix é dela mesma, só o nome que saiu diferente",
+      "confirmar": [
+        1
+      ],
+      "suficiente": true
+    },
+    {
+      "pessoa": "LUANA PITANGA",
+      "texto": "não faço ideia",
+      "confirmar": [],
+      "suficiente": false
+    },
+    {
+      "pessoa": "LUANA PITANGA",
+      "texto": "vou perguntar pra ela e te aviso",
+      "confirmar": [],
+      "adiar": true
+    }
+  ]
+}

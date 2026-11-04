@@ -1,0 +1,20 @@
+# Testes e ruff a cada push e pull request. Não usa chave nenhuma: a IA e o
+# WhatsApp são simulados nos testes, e o exemplo é fictício.
+name: testes
+
+on: [push, pull_request]
+
+jobs:
+  testes:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ["3.11", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: pip install -e ".[agente,dev]"
+      - run: ruff check .
+      - run: python -m unittest discover -s tests -t .

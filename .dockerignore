@@ -1,0 +1,10 @@
+# Lista do que PODE entrar na imagem; todo o resto fica fora, em especial
+# dados/, agente_dados/, saidas/ e cadastros/vinculos_confirmados.json
+# (dados pessoais) e qualquer chave.
+*
+!pyproject.toml
+!README.md
+!src/
+!cadastros/destinos.json
+**/__pycache__
+**/*.pyc

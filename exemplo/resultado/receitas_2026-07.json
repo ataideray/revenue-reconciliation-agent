@@ -1,0 +1,648 @@
+{
+  "formato": "conferencia-receitas/3",
+  "gerado_em": "2026-10-30T14:39:36-03:00",
+  "mes_referencia": "2026-07",
+  "arquivos": {
+    "entradas": {
+      "arquivo": "entradas.xlsx",
+      "sha256": "95ca51551fa92bff5d09bff1a2ffb7a0a8fbeab99826c17d79a2aaf907ac49ed"
+    },
+    "cora": {
+      "arquivo": "cora.xlsx",
+      "sha256": "fb3e6ef2611d96e6da09d34192b80f42851a9f11b5e73f0fa4d014b02f04b7dc"
+    },
+    "stone": {
+      "arquivo": "stone.xlsx",
+      "sha256": "92e22444b5fa61af55a30a674e7c4ad7d160c987c710be6ea50ec77efb5736f8"
+    }
+  },
+  "resumo": {
+    "recibos": 39,
+    "conformes": 34,
+    "divergentes": 5,
+    "pessoas": 43,
+    "ok": 33,
+    "ent_cora": 23,
+    "ent_stone": 18,
+    "valor_cora": 2436.0,
+    "valor_stone": 1790.0,
+    "devolucoes": 1,
+    "sugestoes": 5
+  },
+  "conferencias": [
+    {
+      "grupo": "planilha",
+      "extrato": "Resumo",
+      "verificacao": "Total de receitas (Resumo × Receitas)",
+      "status": "OK",
+      "esperado": "R$ 3.926,00",
+      "encontrado": "R$ 3.926,00",
+      "rotulos": [
+        "Resumo",
+        "Receitas"
+      ],
+      "detalhe": ""
+    },
+    {
+      "grupo": "planilha",
+      "extrato": "Resumo",
+      "verificacao": "Recibos emitidos (Resumo × Receitas)",
+      "status": "OK",
+      "esperado": "39",
+      "encontrado": "39",
+      "rotulos": [
+        "Resumo",
+        "Receitas"
+      ],
+      "detalhe": ""
+    },
+    {
+      "grupo": "planilha",
+      "extrato": "Resumo",
+      "verificacao": "Recibos de sócios (Resumo × Receitas)",
+      "status": "OK",
+      "esperado": "39",
+      "encontrado": "39",
+      "rotulos": [
+        "Resumo",
+        "Receitas"
+      ],
+      "detalhe": ""
+    },
+    {
+      "grupo": "planilha",
+      "extrato": "Resumo",
+      "verificacao": "Recibos de não sócios (Resumo × Receitas)",
+      "status": "OK",
+      "esperado": "0",
+      "encontrado": "0",
+      "rotulos": [
+        "Resumo",
+        "Receitas"
+      ],
+      "detalhe": ""
+    },
+    {
+      "grupo": "planilha",
+      "extrato": "Receitas",
+      "verificacao": "Total de cada recibo = soma dos itens",
+      "status": "OK",
+      "esperado": "39 recibos conferindo",
+      "encontrado": "39 recibos conferindo",
+      "detalhe": ""
+    },
+    {
+      "grupo": "extratos",
+      "extrato": "Cora",
+      "verificacao": "Leitura do PDF",
+      "status": "NÃO VERIFICADO",
+      "esperado": "",
+      "encontrado": "",
+      "detalhe": "extrato recebido já em .xlsx; não há PDF para conferir a leitura"
+    },
+    {
+      "grupo": "extratos",
+      "extrato": "Stone",
+      "verificacao": "Leitura do PDF",
+      "status": "NÃO VERIFICADO",
+      "esperado": "",
+      "encontrado": "",
+      "detalhe": "extrato recebido já em .xlsx; não há PDF para conferir a leitura"
+    },
+    {
+      "grupo": "planilha",
+      "extrato": "Rendimentos",
+      "verificacao": "Rendimentos (extratos × planilha)",
+      "status": "OK",
+      "esperado": "R$ 0,00",
+      "encontrado": "R$ 0,00",
+      "rotulos": [
+        "Extratos",
+        "Planilha"
+      ],
+      "detalhe": ""
+    }
+  ],
+  "alertas": 0,
+  "destinos_novos": [],
+  "limpeza_cadastros": {
+    "colunas_apagadas": [],
+    "vinculos_apagados": 0
+  },
+  "divergencias": [
+    {
+      "id": "DIV-MARTA-SABIA",
+      "pessoa": "MARTA SABIA",
+      "cnpj": false,
+      "tipo": "Sem recibo (só extrato)",
+      "total_recibos": 0.0,
+      "total_extrato": 90.0,
+      "diferenca": -90.0,
+      "recibos_sem_pix": [],
+      "pix_sem_recibo": [
+        {
+          "valor": 90.0,
+          "banco": "Cora",
+          "data": "09/07/2026",
+          "nome_no_extrato": "MARTA SABIA",
+          "pagina": null,
+          "cnpj": false
+        }
+      ],
+      "sugestoes_vinculo": [
+        {
+          "pix_de": "MARTA SABIA",
+          "nome_no_extrato": "MARTA SABIA",
+          "valor": 90.0,
+          "pix_banco": "Cora",
+          "pix_data": "09/07/2026",
+          "pix_pagina": null,
+          "recibo": "0037-2026",
+          "recibo_de": "HELIO SABIA",
+          "pix_cnpj": false,
+          "recibo_cnpj": false,
+          "criterio": "nome em comum (Sabia)",
+          "forca": 2,
+          "div_pix": "DIV-MARTA-SABIA",
+          "div_recibo": "DIV-HELIO-SABIA-0037-2026"
+        }
+      ],
+      "devolucoes_possiveis": [],
+      "nota_tesouraria": ""
+    },
+    {
+      "id": "DIV-ESTUDIO-LUMEN-LTDA",
+      "pessoa": "ESTUDIO LUMEN LTDA",
+      "cnpj": true,
+      "tipo": "Sem recibo (só extrato)",
+      "total_recibos": 0.0,
+      "total_extrato": 275.0,
+      "diferenca": -275.0,
+      "recibos_sem_pix": [],
+      "pix_sem_recibo": [
+        {
+          "valor": 275.0,
+          "banco": "Cora",
+          "data": "07/07/2026",
+          "nome_no_extrato": "ESTUDIO LUMEN LTDA",
+          "pagina": null,
+          "cnpj": true
+        }
+      ],
+      "sugestoes_vinculo": [
+        {
+          "pix_de": "ESTUDIO LUMEN LTDA",
+          "nome_no_extrato": "ESTUDIO LUMEN LTDA",
+          "valor": 275.0,
+          "pix_banco": "Cora",
+          "pix_data": "07/07/2026",
+          "pix_pagina": null,
+          "recibo": "0035-2026",
+          "recibo_de": "EVANDRO PIRILAMPO",
+          "pix_cnpj": true,
+          "recibo_cnpj": false,
+          "criterio": "valor único no mês (sem pista de nome)",
+          "forca": 4,
+          "div_pix": "DIV-ESTUDIO-LUMEN-LTDA",
+          "div_recibo": "DIV-EVANDRO-PIRILAMPO"
+        }
+      ],
+      "devolucoes_possiveis": [],
+      "nota_tesouraria": ""
+    },
+    {
+      "id": "DIV-DANILO-JATOBA",
+      "pessoa": "DANILO JATOBA",
+      "cnpj": false,
+      "tipo": "Sem recibo (só extrato)",
+      "total_recibos": 0.0,
+      "total_extrato": 120.0,
+      "diferenca": -120.0,
+      "recibos_sem_pix": [],
+      "pix_sem_recibo": [
+        {
+          "valor": 120.0,
+          "banco": "Cora",
+          "data": "06/07/2026",
+          "nome_no_extrato": "DANILO JATOBA",
+          "pagina": null,
+          "cnpj": false
+        }
+      ],
+      "sugestoes_vinculo": [
+        {
+          "pix_de": "DANILO JATOBA",
+          "nome_no_extrato": "DANILO JATOBA",
+          "valor": 120.0,
+          "pix_banco": "Cora",
+          "pix_data": "06/07/2026",
+          "pix_pagina": null,
+          "recibo": "0034-2026",
+          "recibo_de": "CARLA JATOBA",
+          "pix_cnpj": false,
+          "recibo_cnpj": false,
+          "criterio": "nome em comum (Jatoba)",
+          "forca": 2,
+          "div_pix": "DIV-DANILO-JATOBA",
+          "div_recibo": "DIV-CARLA-JATOBA"
+        }
+      ],
+      "devolucoes_possiveis": [],
+      "nota_tesouraria": ""
+    },
+    {
+      "id": "DIV-KARINA-TAMARINDO",
+      "pessoa": "KARINA TAMARINDO",
+      "cnpj": false,
+      "tipo": "Divergência de valor",
+      "total_recibos": 120.0,
+      "total_extrato": 420.0,
+      "diferenca": -300.0,
+      "recibos_sem_pix": [],
+      "pix_sem_recibo": [
+        {
+          "valor": 300.0,
+          "banco": "Stone",
+          "data": "11/07/26",
+          "nome_no_extrato": "KARINA TAMARINDO",
+          "pagina": null,
+          "cnpj": false
+        }
+      ],
+      "sugestoes_vinculo": [],
+      "devolucoes_possiveis": [
+        {
+          "pessoa": "KARINA TAMARINDO",
+          "valor": 300.0,
+          "entrada_banco": "Stone",
+          "entrada_data": "11/07/26",
+          "entrada_pagina": null,
+          "saida_nome": "KARINA TAMARINDO",
+          "saida_banco": "Stone",
+          "saida_data": "29/07/26",
+          "saida_pagina": null,
+          "div": "DIV-KARINA-TAMARINDO"
+        }
+      ],
+      "nota_tesouraria": ""
+    },
+    {
+      "id": "DIV-LOJA-BOA-VISTA",
+      "pessoa": "LOJA BOA VISTA",
+      "cnpj": false,
+      "tipo": "Sem recibo (só extrato)",
+      "total_recibos": 0.0,
+      "total_extrato": 65.0,
+      "diferenca": -65.0,
+      "recibos_sem_pix": [],
+      "pix_sem_recibo": [
+        {
+          "valor": 65.0,
+          "banco": "Stone",
+          "data": "10/07/26",
+          "nome_no_extrato": "LOJA BOA VISTA",
+          "pagina": null,
+          "cnpj": false
+        }
+      ],
+      "sugestoes_vinculo": [
+        {
+          "pix_de": "LOJA BOA VISTA",
+          "nome_no_extrato": "LOJA BOA VISTA",
+          "valor": 65.0,
+          "pix_banco": "Stone",
+          "pix_data": "10/07/26",
+          "pix_pagina": null,
+          "recibo": "0038-2026",
+          "recibo_de": "HELIO SABIA",
+          "pix_cnpj": false,
+          "recibo_cnpj": false,
+          "criterio": "valor único no mês (sem pista de nome)",
+          "forca": 4,
+          "div_pix": "DIV-LOJA-BOA-VISTA",
+          "div_recibo": "DIV-HELIO-SABIA-0038-2026"
+        }
+      ],
+      "devolucoes_possiveis": [],
+      "nota_tesouraria": ""
+    },
+    {
+      "id": "DIV-GISELLE-MARESSIA",
+      "pessoa": "GISELLE MARESSIA",
+      "cnpj": false,
+      "tipo": "Sem recibo (só extrato)",
+      "total_recibos": 0.0,
+      "total_extrato": 85.0,
+      "diferenca": -85.0,
+      "recibos_sem_pix": [],
+      "pix_sem_recibo": [
+        {
+          "valor": 85.0,
+          "banco": "Stone",
+          "data": "08/07/26",
+          "nome_no_extrato": "GISELLE MARESSIA",
+          "pagina": null,
+          "cnpj": false
+        }
+      ],
+      "sugestoes_vinculo": [
+        {
+          "pix_de": "GISELLE MARESSIA",
+          "nome_no_extrato": "GISELLE MARESSIA",
+          "valor": 85.0,
+          "pix_banco": "Stone",
+          "pix_data": "08/07/26",
+          "pix_pagina": null,
+          "recibo": "0036-2026",
+          "recibo_de": "GISELE MARESIA",
+          "pix_cnpj": false,
+          "recibo_cnpj": false,
+          "criterio": "nome parecido (Giselle ≈ Gisele, Maressia ≈ Maresia)",
+          "forca": 2,
+          "div_pix": "DIV-GISELLE-MARESSIA",
+          "div_recibo": "DIV-GISELE-MARESIA"
+        }
+      ],
+      "devolucoes_possiveis": [],
+      "nota_tesouraria": ""
+    },
+    {
+      "id": "DIV-CARLA-JATOBA",
+      "pessoa": "CARLA JATOBA",
+      "cnpj": false,
+      "tipo": "Sem extrato (só recibo)",
+      "total_recibos": 120.0,
+      "total_extrato": 0.0,
+      "diferenca": 120.0,
+      "recibos_sem_pix": [
+        {
+          "numero": "0034-2026",
+          "valor": 120
+        }
+      ],
+      "pix_sem_recibo": [],
+      "sugestoes_vinculo": [
+        {
+          "pix_de": "DANILO JATOBA",
+          "nome_no_extrato": "DANILO JATOBA",
+          "valor": 120.0,
+          "pix_banco": "Cora",
+          "pix_data": "06/07/2026",
+          "pix_pagina": null,
+          "recibo": "0034-2026",
+          "recibo_de": "CARLA JATOBA",
+          "pix_cnpj": false,
+          "recibo_cnpj": false,
+          "criterio": "nome em comum (Jatoba)",
+          "forca": 2,
+          "div_pix": "DIV-DANILO-JATOBA",
+          "div_recibo": "DIV-CARLA-JATOBA"
+        }
+      ],
+      "devolucoes_possiveis": [],
+      "nota_tesouraria": ""
+    },
+    {
+      "id": "DIV-EVANDRO-PIRILAMPO",
+      "pessoa": "EVANDRO PIRILAMPO",
+      "cnpj": false,
+      "tipo": "Sem extrato (só recibo)",
+      "total_recibos": 275.0,
+      "total_extrato": 0.0,
+      "diferenca": 275.0,
+      "recibos_sem_pix": [
+        {
+          "numero": "0035-2026",
+          "valor": 275
+        }
+      ],
+      "pix_sem_recibo": [],
+      "sugestoes_vinculo": [
+        {
+          "pix_de": "ESTUDIO LUMEN LTDA",
+          "nome_no_extrato": "ESTUDIO LUMEN LTDA",
+          "valor": 275.0,
+          "pix_banco": "Cora",
+          "pix_data": "07/07/2026",
+          "pix_pagina": null,
+          "recibo": "0035-2026",
+          "recibo_de": "EVANDRO PIRILAMPO",
+          "pix_cnpj": true,
+          "recibo_cnpj": false,
+          "criterio": "valor único no mês (sem pista de nome)",
+          "forca": 4,
+          "div_pix": "DIV-ESTUDIO-LUMEN-LTDA",
+          "div_recibo": "DIV-EVANDRO-PIRILAMPO"
+        }
+      ],
+      "devolucoes_possiveis": [],
+      "nota_tesouraria": ""
+    },
+    {
+      "id": "DIV-GISELE-MARESIA",
+      "pessoa": "GISELE MARESIA",
+      "cnpj": false,
+      "tipo": "Sem extrato (só recibo)",
+      "total_recibos": 85.0,
+      "total_extrato": 0.0,
+      "diferenca": 85.0,
+      "recibos_sem_pix": [
+        {
+          "numero": "0036-2026",
+          "valor": 85
+        }
+      ],
+      "pix_sem_recibo": [],
+      "sugestoes_vinculo": [
+        {
+          "pix_de": "GISELLE MARESSIA",
+          "nome_no_extrato": "GISELLE MARESSIA",
+          "valor": 85.0,
+          "pix_banco": "Stone",
+          "pix_data": "08/07/26",
+          "pix_pagina": null,
+          "recibo": "0036-2026",
+          "recibo_de": "GISELE MARESIA",
+          "pix_cnpj": false,
+          "recibo_cnpj": false,
+          "criterio": "nome parecido (Giselle ≈ Gisele, Maressia ≈ Maresia)",
+          "forca": 2,
+          "div_pix": "DIV-GISELLE-MARESSIA",
+          "div_recibo": "DIV-GISELE-MARESIA"
+        }
+      ],
+      "devolucoes_possiveis": [],
+      "nota_tesouraria": ""
+    },
+    {
+      "id": "DIV-HELIO-SABIA-0037-2026",
+      "pessoa": "HELIO SABIA",
+      "cnpj": false,
+      "recibo": "0037-2026",
+      "tipo": "Sem extrato (só recibo)",
+      "total_recibos": 90,
+      "total_extrato": 0.0,
+      "diferenca": 90,
+      "recibos_sem_pix": [
+        {
+          "numero": "0037-2026",
+          "valor": 90
+        }
+      ],
+      "pix_sem_recibo": [],
+      "sugestoes_vinculo": [
+        {
+          "pix_de": "MARTA SABIA",
+          "nome_no_extrato": "MARTA SABIA",
+          "valor": 90.0,
+          "pix_banco": "Cora",
+          "pix_data": "09/07/2026",
+          "pix_pagina": null,
+          "recibo": "0037-2026",
+          "recibo_de": "HELIO SABIA",
+          "pix_cnpj": false,
+          "recibo_cnpj": false,
+          "criterio": "nome em comum (Sabia)",
+          "forca": 2,
+          "div_pix": "DIV-MARTA-SABIA",
+          "div_recibo": "DIV-HELIO-SABIA-0037-2026"
+        }
+      ],
+      "devolucoes_possiveis": [],
+      "nota_tesouraria": ""
+    },
+    {
+      "id": "DIV-HELIO-SABIA-0038-2026",
+      "pessoa": "HELIO SABIA",
+      "cnpj": false,
+      "recibo": "0038-2026",
+      "tipo": "Sem extrato (só recibo)",
+      "total_recibos": 65,
+      "total_extrato": 0.0,
+      "diferenca": 65,
+      "recibos_sem_pix": [
+        {
+          "numero": "0038-2026",
+          "valor": 65
+        }
+      ],
+      "pix_sem_recibo": [],
+      "sugestoes_vinculo": [
+        {
+          "pix_de": "LOJA BOA VISTA",
+          "nome_no_extrato": "LOJA BOA VISTA",
+          "valor": 65.0,
+          "pix_banco": "Stone",
+          "pix_data": "10/07/26",
+          "pix_pagina": null,
+          "recibo": "0038-2026",
+          "recibo_de": "HELIO SABIA",
+          "pix_cnpj": false,
+          "recibo_cnpj": false,
+          "criterio": "valor único no mês (sem pista de nome)",
+          "forca": 4,
+          "div_pix": "DIV-LOJA-BOA-VISTA",
+          "div_recibo": "DIV-HELIO-SABIA-0038-2026"
+        }
+      ],
+      "devolucoes_possiveis": [],
+      "nota_tesouraria": ""
+    }
+  ],
+  "devolucoes": [
+    {
+      "pessoa": "KARINA TAMARINDO",
+      "valor": 300.0,
+      "entrada_banco": "Stone",
+      "entrada_data": "11/07/26",
+      "entrada_pagina": null,
+      "saida_nome": "KARINA TAMARINDO",
+      "saida_banco": "Stone",
+      "saida_data": "29/07/26",
+      "saida_pagina": null,
+      "div": "DIV-KARINA-TAMARINDO"
+    }
+  ],
+  "sugestoes_vinculo": [
+    {
+      "pix_de": "DANILO JATOBA",
+      "nome_no_extrato": "DANILO JATOBA",
+      "valor": 120.0,
+      "pix_banco": "Cora",
+      "pix_data": "06/07/2026",
+      "pix_pagina": null,
+      "recibo": "0034-2026",
+      "recibo_de": "CARLA JATOBA",
+      "pix_cnpj": false,
+      "recibo_cnpj": false,
+      "criterio": "nome em comum (Jatoba)",
+      "forca": 2,
+      "div_pix": "DIV-DANILO-JATOBA",
+      "div_recibo": "DIV-CARLA-JATOBA"
+    },
+    {
+      "pix_de": "GISELLE MARESSIA",
+      "nome_no_extrato": "GISELLE MARESSIA",
+      "valor": 85.0,
+      "pix_banco": "Stone",
+      "pix_data": "08/07/26",
+      "pix_pagina": null,
+      "recibo": "0036-2026",
+      "recibo_de": "GISELE MARESIA",
+      "pix_cnpj": false,
+      "recibo_cnpj": false,
+      "criterio": "nome parecido (Giselle ≈ Gisele, Maressia ≈ Maresia)",
+      "forca": 2,
+      "div_pix": "DIV-GISELLE-MARESSIA",
+      "div_recibo": "DIV-GISELE-MARESIA"
+    },
+    {
+      "pix_de": "MARTA SABIA",
+      "nome_no_extrato": "MARTA SABIA",
+      "valor": 90.0,
+      "pix_banco": "Cora",
+      "pix_data": "09/07/2026",
+      "pix_pagina": null,
+      "recibo": "0037-2026",
+      "recibo_de": "HELIO SABIA",
+      "pix_cnpj": false,
+      "recibo_cnpj": false,
+      "criterio": "nome em comum (Sabia)",
+      "forca": 2,
+      "div_pix": "DIV-MARTA-SABIA",
+      "div_recibo": "DIV-HELIO-SABIA-0037-2026"
+    },
+    {
+      "pix_de": "ESTUDIO LUMEN LTDA",
+      "nome_no_extrato": "ESTUDIO LUMEN LTDA",
+      "valor": 275.0,
+      "pix_banco": "Cora",
+      "pix_data": "07/07/2026",
+      "pix_pagina": null,
+      "recibo": "0035-2026",
+      "recibo_de": "EVANDRO PIRILAMPO",
+      "pix_cnpj": true,
+      "recibo_cnpj": false,
+      "criterio": "valor único no mês (sem pista de nome)",
+      "forca": 4,
+      "div_pix": "DIV-ESTUDIO-LUMEN-LTDA",
+      "div_recibo": "DIV-EVANDRO-PIRILAMPO"
+    },
+    {
+      "pix_de": "LOJA BOA VISTA",
+      "nome_no_extrato": "LOJA BOA VISTA",
+      "valor": 65.0,
+      "pix_banco": "Stone",
+      "pix_data": "10/07/26",
+      "pix_pagina": null,
+      "recibo": "0038-2026",
+      "recibo_de": "HELIO SABIA",
+      "pix_cnpj": false,
+      "recibo_cnpj": false,
+      "criterio": "valor único no mês (sem pista de nome)",
+      "forca": 4,
+      "div_pix": "DIV-LOJA-BOA-VISTA",
+      "div_recibo": "DIV-HELIO-SABIA-0038-2026"
+    }
+  ]
+}

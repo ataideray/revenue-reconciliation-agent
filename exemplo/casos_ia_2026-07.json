@@ -1,0 +1,483 @@
+{
+  "_leia_me": "Respostas da tesouraria escritas para testar a IA sobre o mês de exemplo. confirmar: os números das sugestões que a resposta confirma.",
+  "casos": [
+    {
+      "pessoa": "MARTA SABIA",
+      "texto": "sim, é a esposa dele",
+      "confirmar": [
+        1
+      ],
+      "suficiente": true
+    },
+    {
+      "pessoa": "MARTA SABIA",
+      "texto": "não sei",
+      "confirmar": [],
+      "suficiente": false
+    },
+    {
+      "pessoa": "ESTUDIO LUMEN LTDA",
+      "texto": "é o estúdio do Evandro",
+      "confirmar": [
+        1
+      ],
+      "suficiente": true
+    },
+    {
+      "pessoa": "ESTUDIO LUMEN LTDA",
+      "texto": "vou verificar e te falo amanhã",
+      "confirmar": [],
+      "adiar": true
+    },
+    {
+      "pessoa": "DANILO JATOBA",
+      "texto": "a 1",
+      "confirmar": [
+        1
+      ],
+      "suficiente": true
+    },
+    {
+      "pessoa": "DANILO JATOBA",
+      "texto": "não, ele não tem nada a ver com a Carla",
+      "confirmar": [],
+      "suficiente": false
+    },
+    {
+      "pessoa": "KARINA TAMARINDO",
+      "texto": "foi devolvido sim, ela pagou duas vezes",
+      "confirmar": [
+        1
+      ],
+      "suficiente": true
+    },
+    {
+      "pessoa": "GISELLE MARESSIA",
+      "texto": "o nome do recibo saiu errado, é ela mesma",
+      "confirmar": [
+        1
+      ],
+      "suficiente": true
+    },
+    {
+      "pessoa": "CARLA JATOBA",
+      "texto": "pode confirmar",
+      "confirmar": [
+        1
+      ],
+      "suficiente": true
+    },
+    {
+      "pessoa": "HELIO SABIA",
+      "texto": "confirmo as duas",
+      "confirmar": [
+        1,
+        2
+      ],
+      "suficiente": true
+    },
+    {
+      "pessoa": "HELIO SABIA",
+      "texto": "a 1 sim, a 2 não sei",
+      "confirmar": [
+        1
+      ],
+      "suficiente": false
+    },
+    {
+      "pessoa": "MARTA SABIA",
+      "texto": "isso mesmo, a Marta é esposa do Helio",
+      "confirmar": [
+        1
+      ],
+      "suficiente": true,
+      "explicacao_contem": [
+        "esposa"
+      ]
+    },
+    {
+      "pessoa": "MARTA SABIA",
+      "texto": "conf",
+      "confirmar": [
+        1
+      ],
+      "suficiente": true
+    },
+    {
+      "pessoa": "MARTA SABIA",
+      "texto": "exatamente",
+      "confirmar": [
+        1
+      ],
+      "suficiente": true,
+      "explicacao_vazia": true
+    },
+    {
+      "pessoa": "MARTA SABIA",
+      "texto": "não, esse pix é de uma oferta avulsa",
+      "confirmar": [],
+      "suficiente": true,
+      "explicacao_contem": [
+        "oferta"
+      ]
+    },
+    {
+      "pessoa": "MARTA SABIA",
+      "texto": "a 1 não",
+      "confirmar": [],
+      "suficiente": false
+    },
+    {
+      "pessoa": "MARTA SABIA",
+      "texto": "obrigada",
+      "confirmar": [],
+      "suficiente": false
+    },
+    {
+      "pessoa": "MARTA SABIA",
+      "texto": "?",
+      "confirmar": [],
+      "suficiente": false
+    },
+    {
+      "pessoa": "MARTA SABIA",
+      "texto": "o recibo saiu no nome do Helio, mas quem pagou foi a Marta",
+      "confirmar": [
+        1
+      ],
+      "suficiente": true
+    },
+    {
+      "pessoa": "ESTUDIO LUMEN LTDA",
+      "texto": "é a empresa do Evandro",
+      "confirmar_aceitos": [
+        [
+          1
+        ],
+        []
+      ],
+      "suficiente": true,
+      "explicacao_contem": [
+        "empresa"
+      ]
+    },
+    {
+      "pessoa": "ESTUDIO LUMEN LTDA",
+      "texto": "sim, é a conta PJ do Evandro",
+      "confirmar": [
+        1
+      ],
+      "suficiente": true,
+      "explicacao_contem": [
+        "PJ"
+      ]
+    },
+    {
+      "pessoa": "ESTUDIO LUMEN LTDA",
+      "texto": "esses 275 são do bazar, não tem a ver com o Evandro",
+      "confirmar": [],
+      "suficiente": true,
+      "explicacao_contem": [
+        "bazar"
+      ]
+    },
+    {
+      "pessoa": "ESTUDIO LUMEN LTDA",
+      "texto": "hmm",
+      "confirmar": [],
+      "suficiente": false
+    },
+    {
+      "pessoa": "DANILO JATOBA",
+      "texto": "é o marido dela",
+      "confirmar_aceitos": [
+        [
+          1
+        ],
+        []
+      ],
+      "suficiente": true,
+      "explicacao_contem": [
+        "marido"
+      ]
+    },
+    {
+      "pessoa": "DANILO JATOBA",
+      "texto": "td certo",
+      "confirmar": [
+        1
+      ],
+      "suficiente": true
+    },
+    {
+      "pessoa": "DANILO JATOBA",
+      "texto": "deixa essa pra depois",
+      "confirmar": [],
+      "suficiente": null,
+      "adiar": true
+    },
+    {
+      "pessoa": "DANILO JATOBA",
+      "texto": "bom dia",
+      "confirmar": [],
+      "suficiente": false
+    },
+    {
+      "pessoa": "KARINA TAMARINDO",
+      "texto": "sim, devolvemos pq ela pagou duplicado",
+      "confirmar": [
+        1
+      ],
+      "suficiente": true,
+      "explicacao_contem": [
+        "duplicado"
+      ]
+    },
+    {
+      "pessoa": "KARINA TAMARINDO",
+      "texto": "foi devolvido sim",
+      "confirmar": [
+        1
+      ],
+      "suficiente": true
+    },
+    {
+      "pessoa": "KARINA TAMARINDO",
+      "texto": "esse dinheiro voltou pra ela no dia 29",
+      "confirmar": [
+        1
+      ],
+      "suficiente": true
+    },
+    {
+      "pessoa": "KARINA TAMARINDO",
+      "texto": "pagou errado e a gente estornou",
+      "confirmar_aceitos": [
+        [
+          1
+        ],
+        []
+      ],
+      "suficiente": true,
+      "explicacao_contem": [
+        "errado"
+      ]
+    },
+    {
+      "pessoa": "KARINA TAMARINDO",
+      "texto": "não foi devolução, os 300 são da inscrição do retiro dela, falta emitir o recibo",
+      "confirmar": [],
+      "suficiente": true,
+      "explicacao_contem": [
+        "retiro"
+      ]
+    },
+    {
+      "pessoa": "KARINA TAMARINDO",
+      "texto": "não lembro, vou olhar o extrato",
+      "confirmar": [],
+      "suficiente": null,
+      "adiar": true
+    },
+    {
+      "pessoa": "KARINA TAMARINDO",
+      "texto": "não",
+      "confirmar": [],
+      "suficiente": false
+    },
+    {
+      "pessoa": "LOJA BOA VISTA",
+      "texto": "é o comércio do Helio, ele pagou o almoço por lá",
+      "confirmar_aceitos": [
+        [
+          1
+        ],
+        []
+      ],
+      "suficiente": true,
+      "explicacao_contem": [
+        "almoço"
+      ]
+    },
+    {
+      "pessoa": "LOJA BOA VISTA",
+      "texto": "não é dele, foi uma oferta do comércio",
+      "confirmar": [],
+      "suficiente": true,
+      "explicacao_contem": [
+        "oferta"
+      ]
+    },
+    {
+      "pessoa": "LOJA BOA VISTA",
+      "texto": "é isso",
+      "confirmar": [
+        1
+      ],
+      "suficiente": true
+    },
+    {
+      "pessoa": "GISELLE MARESSIA",
+      "texto": "sim",
+      "confirmar_aceitos": [
+        [],
+        [
+          1
+        ]
+      ],
+      "suficiente": null
+    },
+    {
+      "pessoa": "GISELLE MARESSIA",
+      "texto": "nome do extrato errado, é a Gisele",
+      "confirmar": [
+        1
+      ],
+      "suficiente": true
+    },
+    {
+      "pessoa": "CARLA JATOBA",
+      "texto": "não, a Carla pagou em dinheiro",
+      "confirmar": [],
+      "suficiente": true,
+      "explicacao_contem": [
+        "dinheiro"
+      ]
+    },
+    {
+      "pessoa": "CARLA JATOBA",
+      "texto": "sim, o Danilo é o marido dela",
+      "confirmar": [
+        1
+      ],
+      "suficiente": true,
+      "explicacao_contem": [
+        "marido"
+      ]
+    },
+    {
+      "pessoa": "EVANDRO PIRILAMPO",
+      "texto": "os recibos estão certos, ele pagou em espécie na secretaria",
+      "confirmar": [],
+      "suficiente": true,
+      "explicacao_contem": [
+        "espécie"
+      ]
+    },
+    {
+      "pessoa": "EVANDRO PIRILAMPO",
+      "texto": "amanhã eu confirmo",
+      "confirmar": [],
+      "suficiente": null,
+      "adiar": true
+    },
+    {
+      "pessoa": "GISELE MARESIA",
+      "texto": "a primeira",
+      "confirmar": [
+        1
+      ],
+      "suficiente": true
+    },
+    {
+      "pessoa": "HELIO SABIA",
+      "texto": "as duas estão certas",
+      "confirmar": [
+        1,
+        2
+      ],
+      "suficiente": true,
+      "explicacao_vazia": true
+    },
+    {
+      "pessoa": "HELIO SABIA",
+      "texto": "a 2",
+      "confirmar": [
+        2
+      ],
+      "suficiente": false
+    },
+    {
+      "pessoa": "HELIO SABIA",
+      "texto": "a 2 tá certa, a 1 não",
+      "confirmar": [
+        2
+      ],
+      "suficiente": false
+    },
+    {
+      "pessoa": "HELIO SABIA",
+      "texto": "a1 e a2",
+      "confirmar": [
+        1,
+        2
+      ],
+      "suficiente": true,
+      "explicacao_vazia": true
+    },
+    {
+      "pessoa": "HELIO SABIA",
+      "texto": "todas corretas, a esposa e o comércio dele pagam por ele",
+      "confirmar": [
+        1,
+        2
+      ],
+      "suficiente": true,
+      "explicacao_contem": [
+        "esposa"
+      ]
+    },
+    {
+      "pessoa": "HELIO SABIA",
+      "texto": "a 1 sim. o recibo 0038 foi pago em dinheiro",
+      "confirmar": [
+        1
+      ],
+      "suficiente": true,
+      "explicacao_contem": [
+        "dinheiro"
+      ]
+    },
+    {
+      "pessoa": "HELIO SABIA",
+      "texto": "confirmo a 3",
+      "confirmar": [],
+      "suficiente": false
+    },
+    {
+      "pessoa": "HELIO SABIA",
+      "texto": "nenhuma das duas, ele pagou em dinheiro",
+      "confirmar": [],
+      "suficiente": true,
+      "explicacao_contem": [
+        "dinheiro"
+      ]
+    },
+    {
+      "pessoa": "HELIO SABIA",
+      "texto": "a Marta é a esposa dele e o resto é do comércio dele",
+      "confirmar_aceitos": [
+        [
+          1,
+          2
+        ],
+        []
+      ],
+      "suficiente": true,
+      "explicacao_contem": [
+        "esposa"
+      ]
+    },
+    {
+      "pessoa": "MARTA SABIA",
+      "texto": "o cpf dela é 123.456.789-09, é a esposa do Helio",
+      "confirmar": [
+        1
+      ],
+      "suficiente": true,
+      "explicacao_contem": [
+        "esposa"
+      ]
+    }
+  ]
+}

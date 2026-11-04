@@ -1,0 +1,113 @@
+{
+  "_leia_me": "colunas: nome fixo de cada coluna (edite só o 'nome'). apelidos: descrição exata -> coluna. prefixos: descrição que começa com -> coluna. Use as chaves sem acento, minúsculas e no singular.",
+  "colunas": {
+    "acai": {
+      "nome": "Açaí",
+      "ultimo_uso": "2026-07"
+    },
+    "almoco": {
+      "nome": "Almoço",
+      "ultimo_uso": "2026-07"
+    },
+    "alto falante": {
+      "nome": "Alto falante",
+      "ultimo_uso": "2026-06"
+    },
+    "anuidade": {
+      "nome": "Anuidade",
+      "ultimo_uso": "2026-07"
+    },
+    "bazar": {
+      "nome": "Bazar",
+      "ultimo_uso": "2026-07"
+    },
+    "brecho": {
+      "nome": "Brechó",
+      "ultimo_uso": null
+    },
+    "cafe": {
+      "nome": "Cafés",
+      "ultimo_uso": "2026-07"
+    },
+    "cantina": {
+      "nome": "Cantina",
+      "ultimo_uso": "2026-07"
+    },
+    "espetinho": {
+      "nome": "Espetinho",
+      "ultimo_uso": null
+    },
+    "feira dos pai": {
+      "nome": "Feira dos Pais",
+      "ultimo_uso": "2026-07"
+    },
+    "fundo lampada": {
+      "nome": "Fundo - Lâmpadas",
+      "ultimo_uso": "2026-06"
+    },
+    "fundo reforma": {
+      "nome": "Fundo reforma",
+      "ultimo_uso": "2026-07"
+    },
+    "fundo reforma venda das camiseta": {
+      "nome": "Fundo reforma - Venda das Camisetas",
+      "ultimo_uso": "2026-07"
+    },
+    "lojinha": {
+      "nome": "Lojinha",
+      "ultimo_uso": null
+    },
+    "oferta": {
+      "nome": "Oferta",
+      "ultimo_uso": "2026-07"
+    },
+    "oficina": {
+      "nome": "Oficina",
+      "ultimo_uso": "2026-07"
+    },
+    "oficina horta": {
+      "nome": "Oficina Horta",
+      "ultimo_uso": "2026-07"
+    },
+    "passeio em outra cidade": {
+      "nome": "Passeios em outras cidades",
+      "ultimo_uso": "2026-07"
+    },
+    "promocao": {
+      "nome": "Promoções",
+      "ultimo_uso": "2026-07"
+    },
+    "rendimento": {
+      "nome": "Rendimentos",
+      "ultimo_uso": "2026-07"
+    },
+    "retiro": {
+      "nome": "Retiro",
+      "ultimo_uso": "2026-07"
+    },
+    "rifa": {
+      "nome": "Rifa",
+      "ultimo_uso": "2026-07"
+    },
+    "saldo de anuidade": {
+      "nome": "Saldo de Anuidade",
+      "ultimo_uso": "2026-07"
+    }
+  },
+  "apelidos": {
+    "anuidade": "anuidade",
+    "cafe": "cafe",
+    "rendimento": "rendimento",
+    "retiro": "retiro",
+    "sopa": "oficina"
+  },
+  "prefixos": {
+    "acai": "acai",
+    "anuidade": "anuidade",
+    "espetinho": "espetinho",
+    "feira dos pai": "feira dos pai",
+    "oficina horta": "oficina horta",
+    "passeio em outra cidade": "passeio em outra cidade",
+    "promocao": "promocao"
+  }
+}

@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "conselho-fiscal"
+version = "0.1.0"
+description = "Conferência mensal dos dados da tesouraria para o Conselho Fiscal"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "pandas>=2.0",
+    "openpyxl>=3.1",
+]
+
+[project.optional-dependencies]
+agente = ["fastapi>=0.110", "uvicorn>=0.29"]
+dev = ["pytest>=8", "ruff>=0.5", "httpx>=0.27"]
+
+[project.scripts]
+conselho-fiscal = "conselho_fiscal.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"conselho_fiscal.agente" = ["static/*.html"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src", "."]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]
+# zip() sem strict=: os zips juntam listas montadas juntas, do mesmo tamanho
+ignore = ["B905"]
+
+[tool.ruff.lint.per-file-ignores]
+# testes têm linhas longas de dados de exemplo (nomes, valores, textos de extrato)
+"tests/**" = ["E501"]

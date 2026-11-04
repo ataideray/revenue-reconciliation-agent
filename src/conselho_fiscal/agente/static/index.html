@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elo — Conselho Fiscal</title>
+<style>
+  :root {
+    --fundo: #efeae2; --painel: #ffffff; --topo: #075e54; --topo-texto: #ffffff;
+    --balao-agente: #ffffff; --balao-eu: #d9fdd3; --texto: #111b21; --suave: #667781;
+    --borda: #d1d7db; --botao: #00a884; --botao-texto: #ffffff; --link: #027eb5;
+    --barra: #f0f2f5;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --fundo: #0b141a; --painel: #111b21; --topo: #202c33; --topo-texto: #e9edef;
+      --balao-agente: #202c33; --balao-eu: #005c4b; --texto: #e9edef; --suave: #8696a0;
+      --borda: #2a3942; --botao: #00a884; --botao-texto: #111b21; --link: #53bdeb;
+      --barra: #202c33;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; margin: 0; }
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; font-size: 14.5px;
+    background: var(--painel); color: var(--texto); display: flex; flex-direction: column;
+  }
+  header.app {
+    padding: 10px 16px; font-weight: 600; border-bottom: 1px solid var(--borda);
+    display: flex; justify-content: space-between; align-items: baseline; gap: 12px;
+  }
+  header.app small { font-weight: 400; color: var(--suave); }
+  main { flex: 1; display: grid; grid-template-columns: 1fr 1fr; min-height: 0; }
+  @media (max-width: 860px) { main { grid-template-columns: 1fr; grid-auto-rows: minmax(70vh, 1fr); } }
+  section.chat { display: flex; flex-direction: column; min-height: 0; border-right: 1px solid var(--borda); }
+  section.chat:last-child { border-right: 0; }
+  .topo { background: var(--topo); color: var(--topo-texto); padding: 10px 16px; }
+  .topo b { display: block; }
+  .topo span { font-size: 12.5px; opacity: .8; }
+  .mensagens { flex: 1; overflow-y: auto; padding: 14px 16px; background: var(--fundo);
+               display: flex; flex-direction: column; gap: 6px; }
+  .msg { max-width: 85%; padding: 7px 10px 5px; border-radius: 8px; line-height: 1.4;
+         box-shadow: 0 1px .5px rgba(0,0,0,.13); white-space: normal; overflow-wrap: anywhere; }
+  .msg.agente { background: var(--balao-agente); align-self: flex-start; }
+  .msg.eu { background: var(--balao-eu); align-self: flex-end; }
+  .msg .hora { font-size: 11px; color: var(--suave); text-align: right; margin-top: 2px; }
+  .anexo { display: block; margin-top: 4px; color: var(--link); text-decoration: none; }
+  .anexo::before { content: "📎 "; }
+  .anexo.sem-link { color: var(--suave); }
+  .botoes { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .botoes button { border: 1px solid var(--botao); background: transparent; color: var(--botao);
+                   border-radius: 16px; padding: 5px 12px; font: inherit; cursor: pointer; }
+  .botoes button:hover:not(:disabled) { background: var(--botao); color: var(--botao-texto); }
+  .botoes button:disabled { opacity: .45; cursor: default; }
+  /* lista do WhatsApp: um botão que abre as opções */
+  .lista-opcoes { display: none; flex-direction: column; margin-top: 6px; border-top: 1px solid var(--borda); }
+  .lista-opcoes.aberta { display: flex; }
+  .lista-opcoes button { border: 0; border-bottom: 1px solid var(--borda); background: transparent;
+                         color: var(--texto); text-align: left; padding: 7px 4px; font: inherit; cursor: pointer; }
+  .lista-opcoes button:hover:not(:disabled) { color: var(--botao); }
+  .lista-opcoes button:disabled { opacity: .45; cursor: default; }
+  .lista-opcoes small { display: block; color: var(--suave); font-size: 12px; }
+  .digitando { align-self: flex-start; color: var(--suave); font-style: italic; font-size: 13px; }
+  form.barra { display: flex; gap: 8px; padding: 8px 10px; background: var(--barra); align-items: center; }
+  form.barra input[type=text] { flex: 1; border: 0; border-radius: 8px; padding: 10px 12px; font: inherit;
+                                background: var(--painel); color: var(--texto); }
+  form.barra input[type=text]:focus { outline: 2px solid var(--botao); }
+  .icone { border: 0; background: transparent; font-size: 20px; cursor: pointer; padding: 4px 6px;
+           color: var(--suave); }
+  .enviar { border: 0; border-radius: 50%; width: 40px; height: 40px; background: var(--botao);
+            color: var(--botao-texto); font-size: 17px; cursor: pointer; }
+  .erro { align-self: center; background: #fde2e1; color: #8a1c1c; border-radius: 8px; padding: 6px 10px;
+          font-size: 13px; }
+</style>
+</head>
+<body>
+<header class="app">
+  Elo, o agente do Conselho Fiscal <small>simulador local — as duas conversas como seriam no WhatsApp</small>
+</header>
+<main>
+  <section class="chat" data-papel="tesouraria">
+    <div class="topo"><b>Tesouraria</b><span>envia os arquivos do mês e explica as divergências</span></div>
+    <div class="mensagens"></div>
+    <form class="barra">
+      <button type="button" class="icone" title="Enviar arquivos">📎</button>
+      <input type="file" multiple hidden accept=".xlsx,.xls,.pdf">
+      <input type="text" placeholder="Mensagem" autocomplete="off">
+      <button type="submit" class="enviar" title="Enviar">➤</button>
+    </form>
+  </section>
+  <section class="chat" data-papel="cf">
+    <div class="topo"><b>Conselho Fiscal</b><span>pede os dados do mês</span></div>
+    <div class="mensagens"></div>
+    <form class="barra">
+      <input type="text" placeholder="Mensagem (ex.: envie julho)" autocomplete="off">
+      <button type="submit" class="enviar" title="Enviar">➤</button>
+    </form>
+  </section>
+</main>
+<script>
+const esc = s => s.replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+// *negrito* como no WhatsApp; quebras de linha preservadas
+// como no WhatsApp: *negrito* e _itálico_ dentro da linha; o itálico só fora de palavras
+// (nome_de_arquivo.xlsx fica como está)
+const formatar = t => esc(t || "")
+  .replace(/\*([^*\n]+)\*/g, "<b>$1</b>")
+  .replace(/(^|[^\w])_([^_\n]+)_(?!\w)/g, "$1<i>$2</i>")
+  .replace(/\n/g, "<br>");
+const hora = iso => iso ? new Date(iso).toLocaleTimeString("pt-BR", {hour: "2-digit", minute: "2-digit"}) : "";
+
+function iniciar(secao) {
+  const papel = secao.dataset.papel;
+  const lista = secao.querySelector(".mensagens");
+  const form = secao.querySelector("form");
+  const campo = form.querySelector("input[type=text]");
+  const arquivo = form.querySelector("input[type=file]");
+  let ocupado = false;
+
+  function desenhar(m) {
+    const div = document.createElement("div");
+    div.className = "msg " + (m.de === "agente" ? "agente" : "eu");
+    let html = formatar(m.texto);
+    for (const a of m.anexos || []) {
+      html += a.caminho
+        ? `<a class="anexo" href="/api/arquivo/${a.caminho.split("/").map(encodeURIComponent).join("/")}" download>${esc(a.nome)}</a>`
+        : `<span class="anexo sem-link">${esc(a.nome)}</span>`;
+    }
+    div.innerHTML = html;
+    if ((m.botoes || []).length) {
+      const caixa = document.createElement("div");
+      caixa.className = "botoes";
+      for (const b of m.botoes) {
+        const bt = document.createElement("button");
+        bt.textContent = b.rotulo;
+        bt.onclick = () => enviar({botao: b.id, rotulo: b.rotulo});
+        caixa.appendChild(bt);
+      }
+      div.appendChild(caixa);
+    }
+    if (m.lista) {
+      const caixa = document.createElement("div");
+      caixa.className = "botoes";
+      const abrir = document.createElement("button");
+      abrir.textContent = "☰ " + m.lista.abrir;
+      const opcoes = document.createElement("div");
+      opcoes.className = "lista-opcoes";
+      abrir.onclick = () => opcoes.classList.toggle("aberta");
+      for (const item of m.lista.itens) {
+        const bt = document.createElement("button");
+        bt.innerHTML = esc(item.rotulo) + (item.descricao ? `<small>${esc(item.descricao)}</small>` : "");
+        bt.onclick = () => enviar({botao: item.id, rotulo: item.rotulo});
+        opcoes.appendChild(bt);
+      }
+      caixa.appendChild(abrir);
+      div.appendChild(caixa);
+      div.appendChild(opcoes);
+    }
+    const h = document.createElement("div");
+    h.className = "hora"; h.textContent = hora(m.em);
+    div.appendChild(h);
+    lista.appendChild(div);
+  }
+
+  function rolar() { lista.scrollTop = lista.scrollHeight; }
+
+  // só os botões da última mensagem do agente ficam ativos
+  function ajustarBotoes() {
+    const todos = [...lista.querySelectorAll(".msg")];
+    todos.forEach((m, i) => m.querySelectorAll(".botoes button, .lista-opcoes button")
+      .forEach(b => b.disabled = ocupado || i !== todos.length - 1));
+  }
+
+  function aguardando(sim) {
+    ocupado = sim;
+    lista.querySelector(".digitando")?.remove();
+    if (sim) {
+      const d = document.createElement("div");
+      d.className = "digitando"; d.textContent = "agente digitando…";
+      lista.appendChild(d);
+    }
+    ajustarBotoes(); rolar();
+  }
+
+  function erro(texto) {
+    const d = document.createElement("div");
+    d.className = "erro"; d.textContent = texto;
+    lista.appendChild(d); rolar();
+  }
+
+  async function chamar(url, opcoes, minha) {
+    desenhar({...minha, de: papel, em: new Date().toISOString()});
+    aguardando(true);
+    try {
+      const r = await fetch(url, opcoes);
+      if (!r.ok) throw new Error((await r.json().catch(() => ({}))).detail || r.statusText);
+      aguardando(false);
+      (await r.json()).forEach(desenhar);
+    } catch (e) {
+      aguardando(false);
+      erro("Falha ao enviar: " + e.message);
+    }
+    ajustarBotoes(); rolar();
+  }
+
+  function enviar(corpo) {
+    if (ocupado) return;
+    return chamar(`/api/mensagem/${papel}`, {
+      method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify(corpo),
+    }, {texto: corpo.rotulo || corpo.texto});
+  }
+
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+    const t = campo.value.trim();
+    if (!t || ocupado) return;
+    campo.value = "";
+    enviar({texto: t});
+  });
+
+  if (arquivo) {
+    form.querySelector(".icone").onclick = () => !ocupado && arquivo.click();
+    arquivo.onchange = async () => {
+      // um arquivo por mensagem, como no WhatsApp
+      for (const f of arquivo.files) {
+        await chamar(`/api/anexo/${papel}`, {
+          method: "POST", headers: {"X-Nome-Arquivo": encodeURIComponent(f.name)}, body: f,
+        }, {texto: "", anexos: [{nome: f.name}]});
+      }
+      arquivo.value = "";
+    };
+  }
+
+  fetch(`/api/conversa/${papel}`).then(r => r.json()).then(ms => {
+    ms.forEach(desenhar); ajustarBotoes(); rolar();
+  });
+}
+
+document.querySelectorAll("section.chat").forEach(iniciar);
+</script>
+</body>
+</html>

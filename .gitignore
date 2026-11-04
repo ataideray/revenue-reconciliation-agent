@@ -1,0 +1,29 @@
+# Dados reais nunca entram neste repositório: só os meses fictícios de exemplo/.
+dados/
+agente_dados/
+saidas/*.xlsx
+saidas/*.json
+.env
+# Atenção: cadastros/vinculos_confirmados.json é versionado porque aqui está
+# vazio ([]). Com dados reais e --cadastros-reais, ele passa a guardar nomes de
+# pessoas: acrescente-o a esta lista, ou aponte CF_CADASTROS_DIR para fora do repositório.
+
+# Excel / LibreOffice abertos
+~$*
+.~lock.*#
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.pytest_cache/
+.ruff_cache/
+build/
+dist/
+
+# Configuração exportada do Container App (docs/azure.md): fica só local
+app.yaml
+
+# Vídeo da demonstração: vai para o README pelo GitHub, não pelo git
+*.mp4

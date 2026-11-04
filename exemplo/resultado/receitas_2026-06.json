@@ -1,0 +1,321 @@
+{
+  "formato": "conferencia-receitas/3",
+  "gerado_em": "2026-10-30T14:39:36-03:00",
+  "mes_referencia": "2026-06",
+  "arquivos": {
+    "entradas": {
+      "arquivo": "entradas.xlsx",
+      "sha256": "5f237e66fc536f6b9861ed62161e58196ce501132e8f674c15e352c2c57ff85f"
+    },
+    "cora": {
+      "arquivo": "cora.xlsx",
+      "sha256": "f7fd811c86a2c532154279200a0b2ae8e7e47fe8ecf838fc42ad174af12ba57a"
+    },
+    "stone": {
+      "arquivo": "stone.xlsx",
+      "sha256": "425064fa63d948d31f9943dc32a535b7ca47cfd5bbc72c6114102b09f7dbfe98"
+    }
+  },
+  "resumo": {
+    "recibos": 20,
+    "conformes": 18,
+    "divergentes": 2,
+    "pessoas": 22,
+    "ok": 18,
+    "ent_cora": 12,
+    "ent_stone": 8,
+    "valor_cora": 1135.0,
+    "valor_stone": 615.0,
+    "devolucoes": 0,
+    "sugestoes": 2
+  },
+  "conferencias": [
+    {
+      "grupo": "planilha",
+      "extrato": "Resumo",
+      "verificacao": "Total de receitas (Resumo × Receitas)",
+      "status": "OK",
+      "esperado": "R$ 1.750,00",
+      "encontrado": "R$ 1.750,00",
+      "rotulos": [
+        "Resumo",
+        "Receitas"
+      ],
+      "detalhe": ""
+    },
+    {
+      "grupo": "planilha",
+      "extrato": "Resumo",
+      "verificacao": "Recibos emitidos (Resumo × Receitas)",
+      "status": "OK",
+      "esperado": "20",
+      "encontrado": "20",
+      "rotulos": [
+        "Resumo",
+        "Receitas"
+      ],
+      "detalhe": ""
+    },
+    {
+      "grupo": "planilha",
+      "extrato": "Resumo",
+      "verificacao": "Recibos de sócios (Resumo × Receitas)",
+      "status": "OK",
+      "esperado": "20",
+      "encontrado": "20",
+      "rotulos": [
+        "Resumo",
+        "Receitas"
+      ],
+      "detalhe": ""
+    },
+    {
+      "grupo": "planilha",
+      "extrato": "Resumo",
+      "verificacao": "Recibos de não sócios (Resumo × Receitas)",
+      "status": "OK",
+      "esperado": "0",
+      "encontrado": "0",
+      "rotulos": [
+        "Resumo",
+        "Receitas"
+      ],
+      "detalhe": ""
+    },
+    {
+      "grupo": "planilha",
+      "extrato": "Receitas",
+      "verificacao": "Total de cada recibo = soma dos itens",
+      "status": "OK",
+      "esperado": "20 recibos conferindo",
+      "encontrado": "20 recibos conferindo",
+      "detalhe": ""
+    },
+    {
+      "grupo": "extratos",
+      "extrato": "Cora",
+      "verificacao": "Leitura do PDF",
+      "status": "NÃO VERIFICADO",
+      "esperado": "",
+      "encontrado": "",
+      "detalhe": "extrato recebido já em .xlsx; não há PDF para conferir a leitura"
+    },
+    {
+      "grupo": "extratos",
+      "extrato": "Stone",
+      "verificacao": "Leitura do PDF",
+      "status": "NÃO VERIFICADO",
+      "esperado": "",
+      "encontrado": "",
+      "detalhe": "extrato recebido já em .xlsx; não há PDF para conferir a leitura"
+    },
+    {
+      "grupo": "planilha",
+      "extrato": "Rendimentos",
+      "verificacao": "Rendimentos (extratos × planilha)",
+      "status": "OK",
+      "esperado": "R$ 0,00",
+      "encontrado": "R$ 0,00",
+      "rotulos": [
+        "Extratos",
+        "Planilha"
+      ],
+      "detalhe": ""
+    }
+  ],
+  "alertas": 0,
+  "destinos_novos": [],
+  "limpeza_cadastros": {
+    "colunas_apagadas": [],
+    "vinculos_apagados": 0
+  },
+  "divergencias": [
+    {
+      "id": "DIV-DANILO-JATOBA",
+      "pessoa": "DANILO JATOBA",
+      "cnpj": false,
+      "tipo": "Sem recibo (só extrato)",
+      "total_recibos": 0.0,
+      "total_extrato": 120.0,
+      "diferenca": -120.0,
+      "recibos_sem_pix": [],
+      "pix_sem_recibo": [
+        {
+          "valor": 120.0,
+          "banco": "Cora",
+          "data": "19/06/2026",
+          "nome_no_extrato": "DANILO JATOBA",
+          "pagina": null,
+          "cnpj": false
+        }
+      ],
+      "sugestoes_vinculo": [
+        {
+          "pix_de": "DANILO JATOBA",
+          "nome_no_extrato": "DANILO JATOBA",
+          "valor": 120.0,
+          "pix_banco": "Cora",
+          "pix_data": "19/06/2026",
+          "pix_pagina": null,
+          "recibo": "0019-2026",
+          "recibo_de": "CARLA JATOBA",
+          "pix_cnpj": false,
+          "recibo_cnpj": false,
+          "criterio": "nome em comum (Jatoba)",
+          "forca": 2,
+          "div_pix": "DIV-DANILO-JATOBA",
+          "div_recibo": "DIV-CARLA-JATOBA"
+        }
+      ],
+      "devolucoes_possiveis": [],
+      "nota_tesouraria": ""
+    },
+    {
+      "id": "DIV-LUANNA-PITTANGA",
+      "pessoa": "LUANNA PITTANGA",
+      "cnpj": false,
+      "tipo": "Sem recibo (só extrato)",
+      "total_recibos": 0.0,
+      "total_extrato": 60.0,
+      "diferenca": -60.0,
+      "recibos_sem_pix": [],
+      "pix_sem_recibo": [
+        {
+          "valor": 60.0,
+          "banco": "Stone",
+          "data": "20/06/26",
+          "nome_no_extrato": "LUANNA PITTANGA",
+          "pagina": null,
+          "cnpj": false
+        }
+      ],
+      "sugestoes_vinculo": [
+        {
+          "pix_de": "LUANNA PITTANGA",
+          "nome_no_extrato": "LUANNA PITTANGA",
+          "valor": 60.0,
+          "pix_banco": "Stone",
+          "pix_data": "20/06/26",
+          "pix_pagina": null,
+          "recibo": "0020-2026",
+          "recibo_de": "LUANA PITANGA",
+          "pix_cnpj": false,
+          "recibo_cnpj": false,
+          "criterio": "nome parecido (Luanna ≈ Luana, Pittanga ≈ Pitanga)",
+          "forca": 2,
+          "div_pix": "DIV-LUANNA-PITTANGA",
+          "div_recibo": "DIV-LUANA-PITANGA"
+        }
+      ],
+      "devolucoes_possiveis": [],
+      "nota_tesouraria": ""
+    },
+    {
+      "id": "DIV-CARLA-JATOBA",
+      "pessoa": "CARLA JATOBA",
+      "cnpj": false,
+      "tipo": "Sem extrato (só recibo)",
+      "total_recibos": 120.0,
+      "total_extrato": 0.0,
+      "diferenca": 120.0,
+      "recibos_sem_pix": [
+        {
+          "numero": "0019-2026",
+          "valor": 120
+        }
+      ],
+      "pix_sem_recibo": [],
+      "sugestoes_vinculo": [
+        {
+          "pix_de": "DANILO JATOBA",
+          "nome_no_extrato": "DANILO JATOBA",
+          "valor": 120.0,
+          "pix_banco": "Cora",
+          "pix_data": "19/06/2026",
+          "pix_pagina": null,
+          "recibo": "0019-2026",
+          "recibo_de": "CARLA JATOBA",
+          "pix_cnpj": false,
+          "recibo_cnpj": false,
+          "criterio": "nome em comum (Jatoba)",
+          "forca": 2,
+          "div_pix": "DIV-DANILO-JATOBA",
+          "div_recibo": "DIV-CARLA-JATOBA"
+        }
+      ],
+      "devolucoes_possiveis": [],
+      "nota_tesouraria": ""
+    },
+    {
+      "id": "DIV-LUANA-PITANGA",
+      "pessoa": "LUANA PITANGA",
+      "cnpj": false,
+      "tipo": "Sem extrato (só recibo)",
+      "total_recibos": 60.0,
+      "total_extrato": 0.0,
+      "diferenca": 60.0,
+      "recibos_sem_pix": [
+        {
+          "numero": "0020-2026",
+          "valor": 60
+        }
+      ],
+      "pix_sem_recibo": [],
+      "sugestoes_vinculo": [
+        {
+          "pix_de": "LUANNA PITTANGA",
+          "nome_no_extrato": "LUANNA PITTANGA",
+          "valor": 60.0,
+          "pix_banco": "Stone",
+          "pix_data": "20/06/26",
+          "pix_pagina": null,
+          "recibo": "0020-2026",
+          "recibo_de": "LUANA PITANGA",
+          "pix_cnpj": false,
+          "recibo_cnpj": false,
+          "criterio": "nome parecido (Luanna ≈ Luana, Pittanga ≈ Pitanga)",
+          "forca": 2,
+          "div_pix": "DIV-LUANNA-PITTANGA",
+          "div_recibo": "DIV-LUANA-PITANGA"
+        }
+      ],
+      "devolucoes_possiveis": [],
+      "nota_tesouraria": ""
+    }
+  ],
+  "devolucoes": [],
+  "sugestoes_vinculo": [
+    {
+      "pix_de": "DANILO JATOBA",
+      "nome_no_extrato": "DANILO JATOBA",
+      "valor": 120.0,
+      "pix_banco": "Cora",
+      "pix_data": "19/06/2026",
+      "pix_pagina": null,
+      "recibo": "0019-2026",
+      "recibo_de": "CARLA JATOBA",
+      "pix_cnpj": false,
+      "recibo_cnpj": false,
+      "criterio": "nome em comum (Jatoba)",
+      "forca": 2,
+      "div_pix": "DIV-DANILO-JATOBA",
+      "div_recibo": "DIV-CARLA-JATOBA"
+    },
+    {
+      "pix_de": "LUANNA PITTANGA",
+      "nome_no_extrato": "LUANNA PITTANGA",
+      "valor": 60.0,
+      "pix_banco": "Stone",
+      "pix_data": "20/06/26",
+      "pix_pagina": null,
+      "recibo": "0020-2026",
+      "recibo_de": "LUANA PITANGA",
+      "pix_cnpj": false,
+      "recibo_cnpj": false,
+      "criterio": "nome parecido (Luanna ≈ Luana, Pittanga ≈ Pitanga)",
+      "forca": 2,
+      "div_pix": "DIV-LUANNA-PITTANGA",
+      "div_recibo": "DIV-LUANA-PITANGA"
+    }
+  ]
+}
