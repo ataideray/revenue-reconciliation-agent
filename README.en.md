@@ -30,7 +30,7 @@ they are connected). The Council's review went from about
 
 ## See it working
 
-<!-- VIDEO: include demo-elo.mp4 -->
+https://github.com/user-attachments/assets/675c01b7-8640-45ae-b7e2-dbab91429d0c
 
 *Elo in production (Azure and the WhatsApp API), with the fictional July in
 `exemplo/`: the treasury sends the three files, Elo reconciles July and asks
