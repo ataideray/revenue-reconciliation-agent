@@ -27,7 +27,7 @@ explicações prontas antes de começar.
 
 ## Veja funcionando
 
-<!-- VÍDEO: incluir demo-elo.mp4 -->
+https://github.com/user-attachments/assets/675c01b7-8640-45ae-b7e2-dbab91429d0c
 
 *O Elo em produção (Azure e API do WhatsApp), com o julho fictício de
 `exemplo/`: a tesouraria envia os três arquivos, o Elo confere julho e
