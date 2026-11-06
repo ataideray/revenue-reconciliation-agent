@@ -6,23 +6,15 @@
 ![python](https://img.shields.io/badge/python-3.11%2B-blue)
 
 O **Elo** confere as receitas do mês de uma associação: liga cada recibo
-emitido pela tesouraria aos Pix dos extratos bancários (bancos Cora e Stone)
-e pergunta à tesouraria, pelo WhatsApp, só o que não bate. O Conselho Fiscal
-(CF) recebe o mês já explicado com notas, numa planilha na mesma ordem do extrato.
+emitido pela tesouraria aos Pix dos extratos bancários e pergunta à tesouraria,
+pelo WhatsApp, só o que não bate. O Conselho Fiscal (CF) recebe o mês já
+explicado com notas, numa planilha na mesma ordem do extrato.
 
-**Resultado:** em dois meses reais, **367 de 377 recibos (97%)** foram ligados
-sozinhos, e as 19 divergências restantes foram fechadas com **9 respostas**
-da tesouraria (isso porque 1 resposta pode explicar duas divergências, se houver
-conexão entre elas). A conferência do CF passou de cerca de **4 horas**, com pausas
+**Resultado:** A conferência do CF passou de cerca de **4 horas**, com pausas
 de **2 a 3 dias** esperando a tesouraria, para cerca de **1 hora**, com as
 explicações prontas antes de começar.
 
-| Mês | Recibos | Ligados sozinhos | Divergências | Respostas da tesouraria |
-|---|---|---|---|---|
-| Junho/2026 | 230 | 226 | 8 | 4 |
-| Julho/2026 | 147 | 141 | 11 | 5 |
-
-> MVP em uso por uma associação. Esta versão pública usa só **dados
+> Projeto Piloto em uso por uma associação. Esta versão pública usa só **dados
 > fictícios** (`exemplo/`): nomes, valores, destinos e a associação foram trocados.
 
 ## Veja funcionando
@@ -33,17 +25,6 @@ https://github.com/user-attachments/assets/675c01b7-8640-45ae-b7e2-dbab91429d0c
 `exemplo/`: a tesouraria envia os três arquivos, o Elo confere julho e
 pergunta as divergências uma por vez; depois, o Conselho Fiscal recebe o
 pacote e faz uma pergunta sobre o mês.*
-
-## Meu papel
-
-Projeto individual, feito a pedido de membros do Conselho Fiscal:
-- **Levantamento:** entrevistei o CF e a tesouraria para entender a
-  conferência manual e onde ela travava;
-- **Produto e arquitetura:** desenhei o fluxo (pipeline determinístico +
-  agente de conversa) e as regras que protegem o resultado (a IA não decide
-  números, nada entre nomes diferentes é automático);
-- **Desenvolvimento:** código, testes, integração com o Gemini e com a API do
-  WhatsApp, implantação no Azure.
 
 ## O problema
 
@@ -86,7 +67,7 @@ flowchart LR
     A --> P[Pipeline<br/>determinístico]
     P -- divergências --> A
     A -- "uma pergunta por vez" --> W
-    A <-- "texto livre (apelidos, sem CPF)" --> G[Gemini<br/>saída estruturada]
+    A <-- "texto livre (dados mascarados)" --> G[Gemini<br/>saída estruturada]
     A -- planilha com as notas --> CF[Conselho Fiscal]
     CF -- perguntas --> A
 ```
@@ -118,10 +99,7 @@ flowchart LR
 
 Também: WhatsApp Cloud API com webhook assinado e fila por número; Docker
 no Azure Container Apps com escala a zero; testes automáticos a cada push
-(GitHub Actions) e uma avaliação da IA com 70 casos de teste, de junho e julho
-([`scripts/avaliar_ia.py`](scripts/avaliar_ia.py)): nenhum erro, 68 respostas
-exatamente como o esperado e 2 avisos leves, que o agente corrige depois do
-retorno da IA.
+(GitHub Actions) e uma avaliação da IA.
 
 O porquê de cada escolha está em [docs/decisoes.md](docs/decisoes.md).
 
@@ -146,11 +124,6 @@ imita duas conversas de WhatsApp lado a lado.
 
 Os meses de exemplo foram montados de propósito, para preservar os dados reais
 da associação.
-Junho tem 20 recibos: 18 batem sozinhos e 4 divergências.
-Julho tem 39 recibos: 34 batem sozinhos e 11 divergências, uma de cada tipo que
-o Elo trata (cônjuge, empresa, nome escrito errado, devolução…). O marido que
-pagou o recibo da esposa em junho paga de novo em julho: confirmado em junho,
-volta como "conta já confirmada".
 
 **O que fica de fora nesta versão local:**
 - **WhatsApp e Azure:** em produção, o Elo conversa pela API oficial do
@@ -183,7 +156,7 @@ python3 scripts/gerar_exemplo.py                # recria os meses fictícios de 
 
 ```
 src/conselho_fiscal/
-  extratos/     leitura dos PDFs do Cora e da Stone, num formato único de transação
+  extratos/     leitura dos PDFs dos extratos bancários, num formato único de transação
   receitas/     planilha da tesouraria, conciliação, planilha final e JSON
   cadastros/    destinos de receita e vínculos confirmados (guarda de 2 anos)
   agente/       conversa (agente.py), IA (ia.py, gemini.py), WhatsApp, consultas do CF, web
@@ -205,9 +178,8 @@ docs/           decisões, arquitetura, uso, agente e hospedagem no Azure
 
 ## Próximos passos
 
-O MVP cobre as receitas. O Elo foi organizado para crescer em novas
-conferências, que podem ser desenvolvidas por quem vier a dar continuidade ao
-projeto:
+O Projeto Piloto cobre as receitas. O Elo foi organizado para crescer em novas
+conferências:
 - **Conferência de saídas:** os pagamentos do mês contra os extratos. A
   leitura dos extratos já devolve as saídas, e o pipeline novo pode
   reaproveitar os módulos `extratos`, `comum` e `cadastros`.

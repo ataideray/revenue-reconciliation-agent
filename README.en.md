@@ -7,24 +7,16 @@
 
 **Elo** reconciles an association's monthly revenue: it matches every
 receipt issued by the treasury to the Pix transfers (Brazil's instant payment
-system) in the bank statements (from the banks Cora and Stone), and asks the
+system) in the bank statements, and asks the
 treasury, over WhatsApp, only about what doesn't match. The Fiscal Council (the
 association's oversight board, "CF") receives the month already explained with
 notes, in a spreadsheet in the same order as the bank statements.
 
-**Results:** across two real months, **367 of 377 receipts (97%)** were
-matched automatically, and the remaining 19 discrepancies were closed with
-**9 answers** from the treasury (one answer can explain two discrepancies, if
-they are connected). The Council's review went from about
+**Results:** The Council's review went from about
 **4 hours**, with **2–3 day** pauses waiting on the treasury, to about
 **1 hour**, with the explanations ready before it starts.
 
-| Month | Receipts | Matched automatically | Discrepancies | Treasury answers |
-|---|---|---|---|---|
-| June 2026 | 230 | 226 | 8 | 4 |
-| July 2026 | 147 | 141 | 11 | 5 |
-
-> MVP in use by an association. This public version uses **fictional data
+> Pilot Project in use by an association. This public version uses **fictional data
 > only** (`exemplo/`): names, amounts, revenue destinations and the association
 > were replaced.
 
@@ -36,17 +28,6 @@ https://github.com/user-attachments/assets/675c01b7-8640-45ae-b7e2-dbab91429d0c
 `exemplo/`: the treasury sends the three files, Elo reconciles July and asks
 about the discrepancies one at a time; then the Fiscal Council receives the
 package and asks a question about the month. The chat is in Portuguese.*
-
-## My role
-
-Solo project, built at the request of Fiscal Council members:
-- **Discovery:** interviewed the Council and the treasury to understand the
-  manual review and where it got stuck;
-- **Product and architecture:** designed the flow (deterministic pipeline +
-  conversational agent) and the rules that protect the result (the AI never
-  decides numbers; nothing between different names is automatic);
-- **Development:** code, tests, Gemini and WhatsApp API integrations,
-  deployment on Azure.
 
 ## The problem
 
@@ -91,7 +72,7 @@ flowchart LR
     A --> P[Deterministic<br/>pipeline]
     P -- discrepancies --> A
     A -- "one question at a time" --> W
-    A <-- "free text (aliases, no tax IDs)" --> G[Gemini<br/>structured output]
+    A <-- "free text (masked data)" --> G[Gemini<br/>structured output]
     A -- spreadsheet with notes --> CF[Fiscal Council]
     CF -- questions --> A
 ```
@@ -125,10 +106,7 @@ flowchart LR
 
 Also: WhatsApp Cloud API with signed webhooks and a per-number queue; Docker
 on Azure Container Apps with scale-to-zero; automated tests on every push
-(GitHub Actions) and an AI evaluation with 70 test cases, from June and July
-([`scripts/avaliar_ia.py`](scripts/avaliar_ia.py)): no errors, 68 answers
-exactly as expected and 2 minor warnings, which the agent corrects after the
-AI responds.
+(GitHub Actions) and an AI evaluation.
 
 The reasoning behind each choice is in [docs/decisoes.md](docs/decisoes.md)
 (Portuguese).
@@ -155,11 +133,6 @@ Portuguese).
 
 The example months were built on purpose, to protect the association's real
 data.
-June has 20 receipts: 18 match automatically and 4 discrepancies.
-July has 39 receipts: 34 match automatically and 11 discrepancies, one of each
-kind Elo handles (spouse, company, misspelled name, refund…). The husband who
-paid his wife's receipt in June pays again in July: confirmed in June, it comes
-back as "account already confirmed".
 
 **What this local version leaves out:**
 - **WhatsApp and Azure:** in production, Elo talks through the official
@@ -192,7 +165,7 @@ python3 scripts/gerar_exemplo.py                # rebuilds the fictional months 
 
 ```
 src/conselho_fiscal/
-  extratos/     Cora and Stone PDF parsing into a single transaction format
+  extratos/     bank statements PDF parsing into a single transaction format
   receitas/     treasury spreadsheet, reconciliation, final spreadsheet and JSON
   cadastros/    revenue destinations and confirmed links (kept for 2 years)
   agente/       conversation (agente.py), AI (ia.py, gemini.py), WhatsApp, Council queries, web
@@ -216,8 +189,7 @@ The code, comments and docs are in Portuguese, the language of the users.
 
 ## Next steps
 
-The MVP covers revenue. Elo was organized to grow into new reviews, which
-can be developed by whoever continues the project:
+The Pilot Project covers revenue. Elo was organized to grow into new reviews:
 - **Expense reconciliation:** the month's payments against the bank
   statements. Statement parsing already returns outgoing transfers, and the
   new pipeline can reuse the `extratos`, `comum` and `cadastros` modules.
